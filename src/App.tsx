@@ -28,6 +28,7 @@ import {
   ExecSlideObrigado
 } from './components/ExecutiveSlides';
 import ImageGenerator from './components/ImageGenerator';
+import { ExportModule } from './components/ExportModule';
 
 export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -107,7 +108,8 @@ export default function App() {
           ))}
         </nav>
 
-        <div className="p-4 border-t border-slate-100">
+        <div className="p-4 border-t border-slate-100 space-y-2">
+          <ExportModule variant="sidebar" isSidebarOpen={isSidebarOpen} />
           <button
             onClick={() => setShowGenerator(!showGenerator)}
             className={`w-full flex items-center gap-4 p-3 rounded-xl transition-all ${
@@ -134,6 +136,7 @@ export default function App() {
           </div>
           
           <div className="flex items-center gap-4">
+            <ExportModule />
             <div className="flex bg-white rounded-xl border border-slate-200 p-1 shadow-sm">
               <button onClick={prevSlide} className="p-2 hover:bg-slate-50 rounded-lg text-slate-600 transition-colors">
                 <ChevronLeft size={20} />
